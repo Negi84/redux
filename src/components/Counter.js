@@ -1,5 +1,6 @@
 // import { Component } from "react";
 
+import { counterActions } from "../store/index";
 import { useSelector, useDispatch } from "react-redux";
 // import { useSelector, useDispatch, connect } from "react-redux";
 
@@ -13,21 +14,22 @@ const Counter = () => {
   //React redux automatically setup the subscription for this component to react store
 
   const incrementHandler = () => {
-    dispatch({ type: "increment" });
+    dispatch(counterActions.increment());
   };
 
   const increaseHandler = () => {
-    dispatch({ type: "increase", amount: 5 });
+    dispatch(counterActions.increase(10));
+    //we can pass counterActions.increase() function an object or just a number
+    //{type: some_unique_identifier, payload: 10}
+    //payload key is not upto us to change
   };
 
   const decrementHandler = () => {
-    dispatch({ type: "decrement" });
+    dispatch(counterActions.decrement());
   };
 
   const toggleCounterHandler = () => {
-    dispatch({
-      type: "toggle",
-    });
+    dispatch(counterActions.toggleCounter());
   };
 
   return (
