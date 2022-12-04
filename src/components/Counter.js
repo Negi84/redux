@@ -8,8 +8,8 @@ import classes from "./Counter.module.css";
 
 const Counter = () => {
   const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counter);
-  const show = useSelector((state) => state.showCounter);
+  const counter = useSelector((state) => state.counter.counter);
+  const show = useSelector((state) => state.counter.showCounter);
   //we are extracting the part of the state, counter is the state which we are extracting here
   //React redux automatically setup the subscription for this component to react store
 
